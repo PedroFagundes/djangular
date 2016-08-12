@@ -1,0 +1,20 @@
+<h3>Contatos</h3>
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th><th>Telefone</th><th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="contact in contacts">
+			<td><a href="#/contact/{{ $index }}">{{ contact.name }}</a></td>
+			<td>{{ contact.phone }}</td>
+			<td><a href="#" ng-click="deleteContact(contact.id)">excluir</a></td>
+		</tr>
+	</tbody>
+</table>
+<form method="POST">
+	<input type="text" name="name" placeholder="Nome" ng-model="contact.name">
+	<input type="text" name="phone" placeholder="Telefone" ng-model="contact.phone">
+	<button ng-click="createContact()">Adicionar</button>
+</form>
