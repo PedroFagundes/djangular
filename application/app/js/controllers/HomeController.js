@@ -12,23 +12,10 @@ app.controller('HomeController', ['$scope', '$http', 'contacts', function($scope
 		};
 
 		$scope.deleteContact = function(id) {
-
-			var data = {id: id};
-
-			$http({
-				method: 'DELETE',
-				url: 'http://localhost:8000/api/v1/contacts/',
-				data: data,
-				headers: {'Content-Type': 'application/json;charset=utf-8'}
-			})
-			.then(function(response) {
-				window.location = '/';
-			})
-
-			// $http.delete('http://localhost:8000/api/v1/contacts/', {data: data})
-			// 	.success(function() {
-			// 		window.location = '/';
-			// 	})
+			$http.delete('http://localhost:8000/api/v1/contact/' + id)
+				.success(function() {
+					window.location = '/';
+				})
 		}
 	});
 }]);

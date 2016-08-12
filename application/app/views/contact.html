@@ -1,6 +1,15 @@
-<h3>Contato</h3>
+<h3>Editar {{ contact.name }}</h3>
 
-<p><b>Nome:</b> {{ detail.name }}</p>
-<p><b>Telefone:</b> {{ detail.phone }}</p>
-
-<a href="/">VOLTAR</a>
+<form method="PUT">
+	<div class="form-group">
+		<label for="name">Nome</label>
+		<input class="form-control" type="text" name="name" ng-model="contact.name" ng-value="contact.name">
+	</div>
+	<div class="form-group">
+		<label for="phone">Telefone</label>
+		<input class="form-control" type="text" name="phone" ng-model="contact.phone" ng-value="contact.phone">
+	</div>
+	<button class="btn btn-primary" ng-click="updateContact()">Salvar alterações</button>
+	<a class="btn btn-danger" ng-click="deleteContact()">Excluir</a>
+	<a class="btn btn-default" href="/">VOLTAR</a>
+</form>
